@@ -1,0 +1,1556 @@
+databaseChangeLog:
+- changeSet:
+    id: v1-initial-001
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: details_type_id
+            type: varchar(31)
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: elementid
+            type: bigint
+        - column:
+            name: cookie_name
+            type: varchar(255)
+        - column:
+            name: storage_key
+            type: varchar(255)
+        - column:
+            constraints:
+              unique: true
+            name: value_computation_id
+            type: bigint
+        tableName: action_details_entity
+- changeSet:
+    id: v1-initial-002
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: action_id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: test_plan_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: details_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: position_id
+            type: bigint
+        tableName: action_entity
+- changeSet:
+    id: v1-initial-003
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: action_entity_id
+            type: bigint
+        - column:
+            name: next_actions
+            type: bigint
+        tableName: action_entity_next_actions
+- changeSet:
+    id: v1-initial-004
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        tableName: application_entity
+- changeSet:
+    id: v1-initial-005
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: application_entity_seq
+- changeSet:
+    id: v1-initial-006
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: action_result_id
+            type: bigint
+        - column:
+            name: content_type
+            type: varchar(255)
+        - column:
+            name: filename
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: size
+            type: bigint
+        - column:
+            name: storage_key
+            type: varchar(255)
+        - column:
+            name: type
+            type: varchar(255)
+        tableName: artifact_entity
+- changeSet:
+    id: v1-initial-007
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: artifact_entity_seq
+- changeSet:
+    id: v1-initial-008
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: content
+            type: blob
+        - column:
+            constraints:
+              nullable: false
+            name: file_name
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: test_path_result_id
+            type: bigint
+        tableName: downloaded_file_entity
+- changeSet:
+    id: v1-initial-009
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: application_id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: selector
+            type: varchar(255)
+        - column:
+            name: selector_type
+            type: tinyint
+        - column:
+            name: stage_id
+            type: bigint
+        - column:
+            name: type
+            type: tinyint
+        tableName: element_entity
+- changeSet:
+    id: v1-initial-010
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: content
+            type: blob
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: element_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: file_name
+            type: varchar(255)
+        tableName: element_screenshot_entity
+- changeSet:
+    id: v1-initial-011
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: x_coordinate_pixels
+            type: decimal(38, 2)
+        - column:
+            name: y_coordinate_pixels
+            type: decimal(38, 2)
+        tableName: position_entity
+- changeSet:
+    id: v1-initial-012
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: dtype
+            type: varchar(31)
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: action_id
+            type: bigint
+        - column:
+            name: execution_order
+            type: int
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: message
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: success
+            type: boolean
+        - column:
+            name: test_path_result_id
+            type: bigint
+        - column:
+            name: exception_message_from_action
+            type: blob
+        tableName: result_entity
+- changeSet:
+    id: v1-initial-013
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: result_entity_seq
+- changeSet:
+    id: v1-initial-014
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: content
+            type: blob
+        - column:
+            constraints:
+              nullable: false
+            name: content_type
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: file_name
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: result_id
+            type: bigint
+        tableName: result_screenshot_entity
+- changeSet:
+    id: v1-initial-015
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: application_id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: url
+            type: varchar(255)
+        tableName: stage_entity
+- changeSet:
+    id: v1-initial-016
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: stage_entity_seq
+- changeSet:
+    id: v1-initial-017
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: tested_in_browser
+            type: varchar(255)
+        - column:
+            name: timestamp
+            type: datetime
+        tableName: test_case_result_entity
+- changeSet:
+    id: v1-initial-018
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: test_case_result_entity_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: results_id
+            type: bigint
+        tableName: test_case_result_entity_results
+- changeSet:
+    id: v1-initial-019
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: path_label
+            type: varchar(255)
+        - column:
+            name: test_set_result_id
+            type: bigint
+        tableName: test_path_result_entity
+- changeSet:
+    id: v1-initial-020
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: test_path_result_entity_seq
+- changeSet:
+    id: v1-initial-021
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: application_id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: stage_id
+            type: bigint
+        tableName: test_plan_entity
+- changeSet:
+    id: v1-initial-022
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: test_plan_entity_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+              unique: true
+            name: test_steps_id
+            type: bigint
+        tableName: test_plan_entity_test_steps
+- changeSet:
+    id: v1-initial-023
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: application_id
+            type: bigint
+        - column:
+            name: label
+            type: varchar(255)
+        - column:
+            name: stage_id
+            type: bigint
+        - column:
+            name: status
+            type: varchar(255)
+        - column:
+            name: timestamp
+            type: datetime
+        tableName: test_run_result_entity
+- changeSet:
+    id: v1-initial-024
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: next_val
+            type: bigint
+        tableName: test_run_result_entity_seq
+- changeSet:
+    id: v1-initial-025
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: browser
+            type: varchar(255)
+        - column:
+            name: test_plan_label
+            type: varchar(255)
+        - column:
+            name: test_run_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: total_run_time
+            type: int
+        - column:
+            constraints:
+              unique: true
+            name: test_case_result_id
+            type: bigint
+        tableName: test_set_result_entity
+- changeSet:
+    id: v1-initial-026
+    author: trails-v1
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: instruction_type
+            type: varchar(31)
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: bigint
+        - column:
+            name: default_value
+            type: varchar(255)
+        - column:
+            name: variable_name
+            type: varchar(255)
+        - column:
+            name: fixed_value
+            type: varchar(255)
+        - column:
+            name: char_pool
+            type: varchar(255)
+        - column:
+            name: prefix
+            type: varchar(255)
+        - column:
+            name: random_string_length
+            type: int
+        - column:
+            name: suffix
+            type: varchar(255)
+        - column:
+            name: format_pattern
+            type: varchar(255)
+        - column:
+            name: offset_days
+            type: int
+        tableName: value_computation_instruction_entity
+- changeSet:
+    id: v1-initial-027
+    author: trails-v1
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: action_entity_id
+        indexName: FK68aslvk9x7yjqimy2s8xtoby2
+        tableName: action_entity_next_actions
+- changeSet:
+    id: v1-initial-028
+    author: trails-v1
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: test_plan_entity_id
+        indexName: FKchb9lw83376bbqj7wdpai9ywi
+        tableName: test_plan_entity_test_steps
+- changeSet:
+    id: v1-initial-029
+    author: trails-v1
+    changes:
+    - createIndex:
+        associatedWith: ''
+        columns:
+        - column:
+            name: test_case_result_entity_id
+        indexName: FKm0eooe8yc5m0lx4b78a0bjaxy
+        tableName: test_case_result_entity_results
+- changeSet:
+    id: v1-initial-030
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: value_computation_id
+        baseTableName: action_details_entity
+        constraintName: FK2idcr7r4hw10mt0fo0w3a860h
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: value_computation_instruction_entity
+        validate: true
+- changeSet:
+    id: v1-initial-031
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: action_entity_id
+        baseTableName: action_entity_next_actions
+        constraintName: FK68aslvk9x7yjqimy2s8xtoby2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: action_entity
+        validate: true
+- changeSet:
+    id: v1-initial-032
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: test_plan_entity_id
+        baseTableName: test_plan_entity_test_steps
+        constraintName: FKchb9lw83376bbqj7wdpai9ywi
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: test_plan_entity
+        validate: true
+- changeSet:
+    id: v1-initial-033
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: details_id
+        baseTableName: action_entity
+        constraintName: FKdup0h2wyelbwqwjx0q09ve5vv
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: action_details_entity
+        validate: true
+- changeSet:
+    id: v1-initial-034
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: position_id
+        baseTableName: action_entity
+        constraintName: FKecd2hr1os2ywd5j9qwrsftdi4
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: position_entity
+        validate: true
+- changeSet:
+    id: v1-initial-035
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: test_case_result_entity_id
+        baseTableName: test_case_result_entity_results
+        constraintName: FKm0eooe8yc5m0lx4b78a0bjaxy
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: test_case_result_entity
+        validate: true
+- changeSet:
+    id: v1-initial-036
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: results_id
+        baseTableName: test_case_result_entity_results
+        constraintName: FKnetjrh3mglw5wsojp6rftb617
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: test_path_result_entity
+        validate: true
+- changeSet:
+    id: v1-initial-037
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: test_steps_id
+        baseTableName: test_plan_entity_test_steps
+        constraintName: FKq76es3dir7v9s7tqq0emrnd4
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: action_entity
+        validate: true
+- changeSet:
+    id: v1-initial-038
+    author: trails-v1
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: test_case_result_id
+        baseTableName: test_set_result_entity
+        constraintName: FKt2s8dpqnolg5d2b2gv017s0ud
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: test_case_result_entity
+        validate: true
+- changeSet:
+    id: v1-initial-039
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: test_run_result_entity
+        columns:
+        - column:
+            name: test_plan_id
+            type: bigint
+- changeSet:
+    id: v1-initial-040
+    author: trails-v1
+    changes:
+    - createIndex:
+        tableName: test_run_result_entity
+        indexName: idx_test_run_result_test_plan_id
+        columns:
+        - column:
+            name: test_plan_id
+- changeSet:
+    id: v1-initial-041
+    author: trails-v1
+    changes:
+    - createTable:
+        tableName: user_profile_entity
+        columns:
+        - column:
+            name: user_id
+            type: uuid
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: first_name
+            type: varchar(100)
+        - column:
+            name: last_name
+            type: varchar(100)
+        - column:
+            name: email
+            type: varchar(255)
+        - column:
+            name: phone_number
+            type: varchar(50)
+        - column:
+            name: profile_picture_file_name
+            type: varchar(255)
+        - column:
+            name: profile_picture_content_type
+            type: varchar(100)
+        - column:
+            name: profile_picture_updated_at
+            type: datetime
+        - column:
+            name: profile_picture_content
+            type: blob
+- changeSet:
+    id: v1-initial-042
+    author: trails-v1
+    changes:
+    - modifyDataType:
+        tableName: user_profile_entity
+        columnName: profile_picture_content
+        newDataType: blob(5242880)
+- changeSet:
+    id: v1-initial-043
+    author: trails-v1
+    dbms: mysql
+    changes:
+    - modifyDataType:
+        tableName: user_profile_entity
+        columnName: profile_picture_content
+        newDataType: mediumblob
+- changeSet:
+    id: v1-initial-044
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: application_entity
+        columns:
+        - column:
+            name: retired
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+    - addColumn:
+        tableName: stage_entity
+        columns:
+        - column:
+            name: retired
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+    - addColumn:
+        tableName: element_entity
+        columns:
+        - column:
+            name: retired
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+    - addColumn:
+        tableName: test_plan_entity
+        columns:
+        - column:
+            name: retired
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+- changeSet:
+    id: v1-initial-045
+    author: trails-v1
+    changes:
+    - createTable:
+        tableName: test_data_set_entity
+        columns:
+        - column:
+            name: id
+            type: bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: label
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: creation_date
+            type: datetime
+            constraints:
+              nullable: false
+        - column:
+            name: retired
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+    - createTable:
+        tableName: test_data_entry_entity
+        columns:
+        - column:
+            name: id
+            type: bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: test_data_set_id
+            type: bigint
+            constraints:
+              nullable: false
+        - column:
+            name: entry_key
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: entry_value
+            type: varchar(255)
+            constraints:
+              nullable: false
+    - addColumn:
+        tableName: value_computation_instruction_entity
+        columns:
+        - column:
+            name: test_data_id
+            type: bigint
+        - column:
+            name: test_data_key
+            type: varchar(255)
+    - addForeignKeyConstraint:
+        baseTableName: test_data_entry_entity
+        baseColumnNames: test_data_set_id
+        constraintName: fk_test_data_entry_test_data_set
+        referencedTableName: test_data_set_entity
+        referencedColumnNames: id
+    - addUniqueConstraint:
+        tableName: test_data_entry_entity
+        columnNames: test_data_set_id, entry_key
+        constraintName: uq_test_data_entry_key_per_set
+- changeSet:
+    id: v1-initial-046
+    author: trails-v1
+    preConditions:
+      onFail: MARK_RAN
+      not:
+        columnExists:
+          tableName: element_entity
+          columnName: locator
+      columnExists:
+        tableName: element_entity
+        columnName: selector
+    changes:
+    - renameColumn:
+        tableName: element_entity
+        oldColumnName: selector
+        newColumnName: locator
+        columnDataType: varchar(255)
+- changeSet:
+    id: v1-initial-047
+    author: trails-v1
+    preConditions:
+      onFail: MARK_RAN
+      dbms:
+        type: mysql
+      columnExists:
+        tableName: element_entity
+        columnName: selector_type
+      sqlCheck:
+        expectedResult: '1'
+        sql: SELECT COUNT(*) FROM information_schema.check_constraints WHERE constraint_schema = DATABASE() AND constraint_name
+          = 'element_entity_chk_1'
+    changes:
+    - sql:
+        dbms: mysql
+        sql: ALTER TABLE element_entity DROP CHECK element_entity_chk_1
+- changeSet:
+    id: v1-initial-048
+    author: trails-v1
+    preConditions:
+      onFail: MARK_RAN
+      not:
+        columnExists:
+          tableName: element_entity
+          columnName: locator_type
+      columnExists:
+        tableName: element_entity
+        columnName: selector_type
+    changes:
+    - renameColumn:
+        tableName: element_entity
+        oldColumnName: selector_type
+        newColumnName: locator_type
+        columnDataType: tinyint
+- changeSet:
+    id: v1-initial-049
+    author: trails-v1
+    changes:
+    - createTable:
+        tableName: deployment_entity
+        columns:
+        - column:
+            name: id
+            type: bigint
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: application_id
+            type: bigint
+            constraints:
+              nullable: false
+        - column:
+            name: stage_id
+            type: bigint
+            constraints:
+              nullable: false
+        - column:
+            name: version
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: deployed_at
+            type: datetime
+            constraints:
+              nullable: false
+    - createIndex:
+        tableName: deployment_entity
+        indexName: idx_deployment_stage_timestamp
+        columns:
+        - column:
+            name: application_id
+        - column:
+            name: stage_id
+        - column:
+            name: deployed_at
+- changeSet:
+    id: v1-initial-050
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: clear_before_typing
+            type: boolean
+            defaultValueBoolean: false
+            constraints:
+              nullable: false
+        - column:
+            name: delay_after_clear_millis
+            type: bigint
+            defaultValueNumeric: 0
+            constraints:
+              nullable: false
+- changeSet:
+    id: v1-initial-051
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    changes:
+    - sql:
+        sql: ALTER TABLE action_details_entity MODIFY clear_before_typing bit(1) NOT NULL DEFAULT b'0'
+- changeSet:
+    id: v1-initial-052
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: delay_millis
+            type: bigint
+            defaultValueNumeric: 0
+            constraints:
+              nullable: false
+- changeSet:
+    id: v1-initial-053
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: value_source
+            type: varchar(32)
+        - column:
+            name: value_name
+            type: varchar(255)
+- changeSet:
+    id: v1-initial-054
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: downloaded_file_name
+            type: varchar(255)
+- changeSet:
+    id: v1-initial-055
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: movement
+            type: varchar(32)
+        - column:
+            name: direction
+            type: varchar(16)
+        - column:
+            name: amount
+            type: double
+        - column:
+            name: unit
+            type: varchar(16)
+        - column:
+            name: delay_after_move_millis
+            type: bigint
+- changeSet:
+    id: v1-initial-056
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: document_file_name
+            type: varchar(255)
+        - column:
+            name: document_expected_text
+            type: varchar(2048)
+        - column:
+            name: document_case_sensitive
+            type: boolean
+- changeSet:
+    id: v1-initial-057
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    changes:
+    - sql:
+        sql: ALTER TABLE action_details_entity MODIFY document_case_sensitive bit(1) DEFAULT b'0'
+- changeSet:
+    id: v1-initial-058
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: result_entity
+        columnName: success
+    changes:
+    - sql:
+        sql: ALTER TABLE result_entity MODIFY success bit(1) NOT NULL
+- changeSet:
+    id: v1-initial-059
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: result_entity
+        columnName: exception_message_from_action
+    changes:
+    - sql:
+        sql: ALTER TABLE result_entity MODIFY exception_message_from_action longtext
+- changeSet:
+    id: v1-initial-060
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: application_entity
+        columnName: retired
+    changes:
+    - sql:
+        sql: ALTER TABLE application_entity MODIFY retired tinyint NOT NULL DEFAULT 0
+- changeSet:
+    id: v1-initial-061
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: stage_entity
+        columnName: retired
+    changes:
+    - sql:
+        sql: ALTER TABLE stage_entity MODIFY retired tinyint NOT NULL DEFAULT 0
+- changeSet:
+    id: v1-initial-062
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: element_entity
+        columnName: retired
+    changes:
+    - sql:
+        sql: ALTER TABLE element_entity MODIFY retired tinyint NOT NULL DEFAULT 0
+- changeSet:
+    id: v1-initial-063
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: test_plan_entity
+        columnName: retired
+    changes:
+    - sql:
+        sql: ALTER TABLE test_plan_entity MODIFY retired tinyint NOT NULL DEFAULT 0
+- changeSet:
+    id: v1-initial-064
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: test_data_set_entity
+        columnName: retired
+    changes:
+    - sql:
+        sql: ALTER TABLE test_data_set_entity MODIFY retired tinyint NOT NULL DEFAULT 0
+- changeSet:
+    id: v1-initial-065
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: action_details_entity
+        columnName: clear_before_typing
+    changes:
+    - sql:
+        sql: ALTER TABLE action_details_entity MODIFY clear_before_typing bit(1) NOT NULL DEFAULT b'0'
+- changeSet:
+    id: v1-initial-066
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: action_details_entity
+        columnName: document_case_sensitive
+    changes:
+    - sql:
+        sql: ALTER TABLE action_details_entity MODIFY document_case_sensitive bit(1) DEFAULT b'0'
+- changeSet:
+    id: v1-initial-067
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: downloaded_file_entity
+        columnName: content
+    changes:
+    - sql:
+        sql: ALTER TABLE downloaded_file_entity MODIFY content longblob
+- changeSet:
+    id: v1-initial-068
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: element_screenshot_entity
+        columnName: content
+    changes:
+    - sql:
+        sql: ALTER TABLE element_screenshot_entity MODIFY content longblob
+- changeSet:
+    id: v1-initial-069
+    author: trails-v1
+    preConditions:
+    - onFail: MARK_RAN
+    - dbms:
+        type: mysql
+    - columnExists:
+        tableName: result_screenshot_entity
+        columnName: content
+    changes:
+    - sql:
+        sql: ALTER TABLE result_screenshot_entity MODIFY content longblob NOT NULL
+- changeSet:
+    id: v1-initial-070
+    author: trails-v1
+    changes:
+    - createTable:
+        tableName: test_plan_group_entity
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: test_plan_id
+            type: BIGINT
+            constraints:
+              nullable: false
+              foreignKeyName: fk_test_plan_group_test_plan
+              references: test_plan_entity(id)
+        - column:
+            name: x_coordinate_pixels
+            type: DECIMAL(19,2)
+            constraints:
+              nullable: false
+        - column:
+            name: y_coordinate_pixels
+            type: DECIMAL(19,2)
+            constraints:
+              nullable: false
+        - column:
+            name: width_pixels
+            type: DECIMAL(19,2)
+            constraints:
+              nullable: false
+        - column:
+            name: height_pixels
+            type: DECIMAL(19,2)
+            constraints:
+              nullable: false
+    - createIndex:
+        tableName: test_plan_group_entity
+        indexName: idx_test_plan_group_test_plan
+        columns:
+        - column:
+            name: test_plan_id
+    - createTable:
+        tableName: test_plan_group_action_reference
+        columns:
+        - column:
+            name: group_id
+            type: BIGINT
+            constraints:
+              nullable: false
+              foreignKeyName: fk_group_action_reference_group
+              references: test_plan_group_entity(id)
+        - column:
+            name: action_reference_id
+            type: BIGINT
+            constraints:
+              nullable: false
+    - createIndex:
+        tableName: test_plan_group_action_reference
+        indexName: idx_group_action_reference_group
+        columns:
+        - column:
+            name: group_id
+- changeSet:
+    id: v1-initial-071
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: test_plan_group_entity
+        columns:
+        - column:
+            name: label
+            type: VARCHAR(255)
+- changeSet:
+    id: v1-initial-072
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: element_screenshot_entity
+        columns:
+        - column:
+            name: content_type
+            type: VARCHAR(100)
+    - addNotNullConstraint:
+        tableName: element_screenshot_entity
+        columnName: content_type
+        columnDataType: VARCHAR(100)
+- changeSet:
+    id: v1-initial-073
+    author: trails-v1
+    changes:
+    - createIndex:
+        indexName: idx_stage_application_retired
+        tableName: stage_entity
+        columns:
+        - column:
+            name: application_id
+        - column:
+            name: retired
+    - createIndex:
+        indexName: idx_element_application_stage_retired
+        tableName: element_entity
+        columns:
+        - column:
+            name: application_id
+        - column:
+            name: stage_id
+        - column:
+            name: retired
+    - createIndex:
+        indexName: idx_action_test_plan
+        tableName: action_entity
+        columns:
+        - column:
+            name: test_plan_id
+- changeSet:
+    id: v1-initial-074
+    author: trails-v1
+    preConditions:
+      onFail: MARK_RAN
+      tableExists:
+        tableName: test_case_result_entity_results
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: test_case_result_entity_results
+        constraintName: FKm0eooe8yc5m0lx4b78a0bjaxy
+    - dropForeignKeyConstraint:
+        baseTableName: test_case_result_entity_results
+        constraintName: FKnetjrh3mglw5wsojp6rftb617
+    - dropTable:
+        tableName: test_case_result_entity_results
+- changeSet:
+    id: v1-initial-075
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: x_coordinate
+            type: int
+        - column:
+            name: y_coordinate
+            type: int
+- changeSet:
+    id: v1-initial-076
+    author: trails-v1
+    changes:
+    - addColumn:
+        tableName: action_details_entity
+        columns:
+        - column:
+            name: viewport_width
+            type: int
+        - column:
+            name: viewport_height
+            type: int
+- changeSet:
+    id: v1-initial-077
+    author: trails-v1
+    changes:
+    - modifyDataType:
+        tableName: element_entity
+        columnName: locator
+        newDataType: text
+- changeSet:
+    id: v1-initial-078
+    author: trails-v1
+    changes:
+    - modifyDataType:
+        tableName: result_entity
+        columnName: message
+        newDataType: text
+- changeSet:
+    id: v1-initial-079
+    author: trails-v1
+    changes:
+    - modifyDataType:
+        tableName: test_data_entry_entity
+        columnName: entry_value
+        newDataType: text
+    - modifyDataType:
+        tableName: value_computation_instruction_entity
+        columnName: fixed_value
+        newDataType: text
+    - modifyDataType:
+        tableName: value_computation_instruction_entity
+        columnName: default_value
+        newDataType: text
+    - modifyDataType:
+        tableName: value_computation_instruction_entity
+        columnName: prefix
+        newDataType: text
+    - modifyDataType:
+        tableName: value_computation_instruction_entity
+        columnName: suffix
+        newDataType: text
+    - modifyDataType:
+        tableName: value_computation_instruction_entity
+        columnName: char_pool
+        newDataType: text
+- changeSet:
+    id: v1-initial-080
+    author: trails-v1
+    changes:
+    - addNotNullConstraint:
+        tableName: test_data_entry_entity
+        columnName: entry_value
+        columnDataType: text
+- changeSet:
+    id: v1-initial-081
+    author: trails-v1
+    changes:
+    - sql:
+        sql: INSERT INTO application_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM application_entity_seq)
+    - sql:
+        sql: INSERT INTO artifact_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM artifact_entity_seq)
+    - sql:
+        sql: INSERT INTO result_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM result_entity_seq)
+    - sql:
+        sql: INSERT INTO stage_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM stage_entity_seq)
+    - sql:
+        sql: INSERT INTO test_path_result_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM test_path_result_entity_seq)
+    - sql:
+        sql: INSERT INTO test_run_result_entity_seq (next_val) SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM test_run_result_entity_seq)
