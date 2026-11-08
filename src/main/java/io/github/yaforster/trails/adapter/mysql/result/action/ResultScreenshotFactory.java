@@ -74,10 +74,4 @@ public class ResultScreenshotFactory {
         };
     }
 
-    private record EncodedScreenshot(String content, String contentType) {
-    }
-
-    private record ScreenshotPayload(byte[] content, String contentType) {
-    }
-
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,11 @@ public class ActionResultDatabaseServiceImpl implements ActionResultQueryService
     private final ResultRepository resultRepository;
     private final PersistedActionResultMapper persistedActionResultMapper;
     private final ResultScreenshotRepository resultScreenshotRepository;
+
+    @Override
+    public Set<Long> findActionResultIdsInPath(Long pathResultId) {
+        return Set.copyOf(resultScreenshotRepository.findActionResultIdsInPath(pathResultId));
+    }
 
     @Override
     public Optional<List<PersistedActionResult>> listActionResultChain(Long pathResultId) {
